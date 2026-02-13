@@ -4,7 +4,7 @@ import smtplib
 from email.message import EmailMessage
 from mashup import create_mashup
 
-# 🔴 YOUR GMAIL (App Password version)
+
 SENDER_EMAIL = "goyalprigya@gmail.com"
 APP_PASSWORD = "zfjfgpdqwcgreknl"   
 
@@ -27,12 +27,10 @@ if st.button("Generate Mashup"):
 
         st.success("Mashup created successfully! ✅")
 
-        # Create ZIP
         zip_filename = "mashup.zip"
         with zipfile.ZipFile(zip_filename, "w") as zipf:
             zipf.write("output.mp3")
 
-        # Send Email
         try:
             msg = EmailMessage()
             msg["Subject"] = "Your Mashup File 🎵"
@@ -50,7 +48,6 @@ if st.button("Generate Mashup"):
                 filename=zip_filename
             )
 
-            # Gmail SMTP
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.login(SENDER_EMAIL, APP_PASSWORD)
                 smtp.send_message(msg)
@@ -60,10 +57,10 @@ if st.button("Generate Mashup"):
         except Exception as e:
             st.error(f"Email failed: {e}")
 
-        # Download Button
         with open("output.mp3", "rb") as f:
             st.download_button(
                 label="Download Mashup",
                 data=f,
                 file_name="output.mp3"
             )
+
