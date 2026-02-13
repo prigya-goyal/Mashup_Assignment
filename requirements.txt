@@ -1,5 +1,4 @@
 streamlit
 pytubefix
 moviepy
-yt-dlp
 imageio[ffmpeg]
