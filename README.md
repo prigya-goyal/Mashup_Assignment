@@ -68,10 +68,15 @@ http://localhost:8501
 ## Project Structure
 
 -Part_1/
+    102313061.py
+    requirements.txt
+
 -Part_2/
--102313061.py
--requirements.txt
+    102313061.py
+    app.py
+
 -README.md
+-requirements.txt
 
 ---
 
